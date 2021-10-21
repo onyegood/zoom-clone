@@ -1,9 +1,9 @@
 import {IIcomProps} from './IcomInterface'
-import Icon from 'react-native-vector-icons/FontAwesome5'
+import Icon from 'react-native-vector-icons/FontAwesome'
 import React from 'react'
 import {TouchableOpacity} from 'react-native'
 
-const ForntAwesome5: React.FC<IIcomProps> = ({
+const ForntAwesome: React.FC<IIcomProps> = ({
   name,
   size,
   style,
@@ -12,11 +12,11 @@ const ForntAwesome5: React.FC<IIcomProps> = ({
 }) => {
   if (onPress)
     return (
-      <TouchableOpacity onPress={onPress}>
-        <Icon name={name} size={size} style={style} color={color} />
+      <TouchableOpacity onPress={onPress} style={style}>
+        <Icon name={name} size={size} color={color} />
       </TouchableOpacity>
     )
   return <Icon name={name} size={size} style={style} color={color} />
 }
 
-export default ForntAwesome5
+export default ForntAwesome
