@@ -1,5 +1,6 @@
 import {Text, View} from 'react-native'
 
+import Fontisto from '../icons/Fontisto'
 import React from 'react'
 
 interface Props {}
@@ -7,7 +8,7 @@ interface Props {}
 const SearchComponent: React.FC<Props> = () => {
   return (
     <View>
-      <Text>App Search</Text>
+      <Fontisto name='search' size={20} color='#858585' />
     </View>
   )
 }
