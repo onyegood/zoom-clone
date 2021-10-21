@@ -20,10 +20,13 @@ const _style = StyleSheet.create({
     flexDirection: 'row',
     paddingHorizontal: 10,
     height: 40,
-    alignItems: 'center'
+    alignItems: 'center',
+    borderRadius: 10
   },
   searchText: {
-
+    color: '#858585',
+    paddingLeft: 10,
+    fontSize: 20
   }
 })
 export default SearchComponent
