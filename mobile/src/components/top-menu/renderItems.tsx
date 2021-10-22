@@ -1,24 +1,27 @@
-import { StyleSheet, Text, View } from "react-native"
+import {StyleSheet, Text, View} from 'react-native'
 
-import ForntAwesome from "../icons/ForntAwesome"
-import React from "react"
-import { styles } from "../../styles/Styles"
+import ForntAwesome from '../icons/ForntAwesome'
+import React from 'react'
+import {styles} from '../../styles/Styles'
 
 const items = [
   {
     id: 1,
     name: 'video-camera',
     title: 'New Meeting',
+    color: '#FF751F',
   },
   {
     id: 2,
     name: 'plus-square',
     title: 'Join',
+    color: '#0470DC',
   },
   {
     id: 3,
     name: 'calendar',
     title: 'Schedule',
+    color: 'indigo',
   },
   {
     id: 4,
@@ -29,12 +32,12 @@ const items = [
 
 export const renderItems = () => {
   return items.map(item => (
-    <View key={item.id} style={styles.a_i_c}>
+    <View style={_style.buttonContainer} key={item.id}>
       <ForntAwesome
         name={item.name}
         size={23}
         color='#efefef'
-        style={_style.button}
+        style={[_style.button, {backgroundColor: item.color ?? '#0470DC'}]}
         onPress={() => {}}
       />
       <Text style={_style.menuText}>{item.title}</Text>
@@ -52,9 +55,12 @@ const _style = StyleSheet.create({
   button: {
     height: 50,
     width: 50,
-    backgroundColor: 'blue',
     borderRadius: 15,
     ...styles.j_c_c,
-    ...styles.a_i_c
-  }
+    ...styles.a_i_c,
+  },
+  buttonContainer: {
+    flex: 1,
+    ...styles.a_i_c,
+  },
 })

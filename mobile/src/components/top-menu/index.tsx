@@ -10,21 +10,17 @@ interface Props {}
 const TopMenuComponent: React.FC<Props> = () => {
   return (
     <View style={_style.container}>
-      <View style={_style.buttonContainer}>
-        {renderItems()}
-      </View>
+      {renderItems()}
     </View>
   )
 }
 
 const _style = StyleSheet.create({
   container: {
-    paddingVertical: 25,
+    marginTop: 25,
     marginBottom: 10,
     borderBottomColor: '#1f1f1f',
-    borderBottomWidth: 1
-  },
-  buttonContainer: {
+    borderBottomWidth: 1,
     ...styles.f_d_r,
     ...styles.j_c_s_b
   }
