@@ -1,18 +1,41 @@
-import {Text, View} from 'react-native'
+import {StyleSheet, View} from 'react-native'
 
-import MainLayout from '../../layout'
+import CustomButton from '../../components/ui-elements/button'
+import InputField from '../../components/ui-elements/input'
 import React from 'react'
 
 interface Props {}
 
-const MeetingRoom: React.FC<Props> = () => {
+const MeetingRoomScreen: React.FC<Props> = () => {
   return (
-    <MainLayout>
+    <View style={_style.container}>
       <View>
-        <Text>Meeting room</Text>
+        <InputField
+          value=''
+          placeholder='Enter name'
+          onChangeText={() => true}
+          title='Name*'
+        />
+        <InputField
+          value=''
+          placeholder='Enter room id'
+          onChangeText={() => true}
+          title='Room*'
+        />
       </View>
-    </MainLayout>
+
+      <CustomButton />
+    </View>
   )
 }
 
-export default MeetingRoom
+const _style = StyleSheet.create({
+  container: {
+    backgroundColor: '#1f1f1f',
+    padding: 10,
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    flex: 1,
+  },
+})
+export default MeetingRoomScreen
