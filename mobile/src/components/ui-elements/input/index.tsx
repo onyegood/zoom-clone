@@ -1,11 +1,20 @@
-import {StyleSheet, TextInput, View} from 'react-native'
+import {
+  StyleProp,
+  StyleSheet,
+  Text,
+  TextInput,
+  TextStyle,
+  View,
+} from 'react-native'
 
 import React from 'react'
 
 interface Props {
   placeholder: string | undefined
   value: string
+  title?: string
   onChangeText: ((text: string) => void) | undefined
+  style?: StyleProp<TextStyle>
   keyboardType?:
     | 'default'
     | 'numeric'
@@ -27,28 +36,37 @@ const InputField: React.FC<Props> = ({
   value,
   onChangeText,
   keyboardType,
+  style,
+  title,
 }) => {
   return (
-    <TextInput
-      placeholder={placeholder}
-      onChangeText={onChangeText}
-      value={value}
-      keyboardType={keyboardType}
-      style={_style.textInput}
-      placeholderTextColor='#1c1c1c'
-    />
+    <View>
+      {title && <Text style={_style.title}>{title}</Text>}
+      <TextInput
+        placeholder={placeholder}
+        onChangeText={onChangeText}
+        value={value}
+        keyboardType={keyboardType}
+        style={[_style.textInput, style, {marginBottom: title ? 20 : 10}]}
+        placeholderTextColor='#cccccc6f'
+      />
+    </View>
   )
 }
 
 const _style = StyleSheet.create({
   textInput: {
     width: '100%',
-    // backgroundColor: '#1c1c1c',
     fontSize: 20,
     height: 50,
-    borderWidth: 1,
+    borderWidth: 0.4,
+    borderColor: '#ccc',
     padding: 10,
-    color: '#1c1c1c',
+    color: '#ccc',
+    marginTop: 10
+  },
+  title: {
+    color: '#ccc',
   },
 })
 export default InputField
