@@ -2,7 +2,9 @@ import {StyleSheet, Text, View} from 'react-native'
 
 import ForntAwesome from '../icons/ForntAwesome'
 import React from 'react'
+import { routeKeys } from '../../navigation/routeKeys'
 import {styles} from '../../styles/Styles'
+import { useTypedNavigation } from '../../hooks/useTypedNavigation'
 
 const items = [
   {
@@ -31,6 +33,12 @@ const items = [
 ]
 
 export const renderItems = () => {
+  const navigation = useTypedNavigation();
+
+  const openMeeting = () => {
+    navigation.navigate(routeKeys.meetingRoom, {});
+  }
+
   return items.map(item => (
     <View style={_style.buttonContainer} key={item.id}>
       <ForntAwesome
@@ -38,7 +46,7 @@ export const renderItems = () => {
         size={23}
         color='#efefef'
         style={[_style.button, {backgroundColor: item.color ?? '#0470DC'}]}
-        onPress={() => {}}
+        onPress={() => openMeeting()}
       />
       <Text style={_style.menuText}>{item.title}</Text>
     </View>

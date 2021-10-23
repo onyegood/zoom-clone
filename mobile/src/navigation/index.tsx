@@ -8,7 +8,7 @@ import {routeKeys} from './routeKeys'
 const Navigation = () => {
   const Stack = createStackNavigator()
   const screenOptions = {
-    headerShown: false,
+    headerShown: true,
   }
 
   return (
@@ -16,10 +16,21 @@ const Navigation = () => {
       <Stack.Navigator
         initialRouteName={routeKeys.home}
         screenOptions={screenOptions}>
-        <Stack.Screen name={routeKeys.home} component={HomeScreen} />
+        <Stack.Screen
+          name={routeKeys.home}
+          component={HomeScreen}
+          options={{headerShown: false}}
+        />
         <Stack.Screen
           name={routeKeys.meetingRoom}
           component={MeetingRoomScreen}
+          options={{
+            title: 'Start a Meeting',
+            headerStyle: {
+              backgroundColor: '#1c1c1c'
+            },
+            headerTintColor: 'white'
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>
