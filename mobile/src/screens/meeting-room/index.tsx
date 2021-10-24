@@ -1,30 +1,43 @@
+import React, { useState } from 'react'
 import {StyleSheet, View} from 'react-native'
 
 import CustomButton from '../../components/ui-elements/button'
 import InputField from '../../components/ui-elements/input'
-import React from 'react'
 
-interface Props {}
+interface Props {
+}
 
 const MeetingRoomScreen: React.FC<Props> = () => {
+
+  const [name, setName] = useState('');
+  const [roomId, setRoomId] = useState('');
+
+  const handleSubmit = () => {
+    const payload = {
+      name: name,
+      room: roomId
+    }
+    console.log(payload)
+  }
+
   return (
     <View style={_style.container}>
       <View>
         <InputField
-          value=''
+          value={name}
           placeholder='Enter name'
-          onChangeText={() => true}
+          onChangeText={(value) => setName(value)}
           title='Name*'
         />
         <InputField
-          value=''
+          value={roomId}
           placeholder='Enter room id'
-          onChangeText={() => true}
+          onChangeText={(value) => setRoomId(value)}
           title='Room*'
         />
       </View>
 
-      <CustomButton />
+      <CustomButton onPress={() => handleSubmit()} />
     </View>
   )
 }
