@@ -1,14 +1,16 @@
-import {StyleSheet, Text, View} from 'react-native'
+import {GestureResponderEvent, StyleSheet, Text, View} from 'react-native'
 
 import MaterialCummunitIcons from '../../icons/MaterialCummunitIcons'
 import React from 'react'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 
-interface Props {}
+interface Props {
+  onPress?: (((event: GestureResponderEvent) => void) & (() => void)) | undefined
+}
 
-const CustomButton: React.FC<Props> = () => {
+const CustomButton: React.FC<Props> = ({onPress}) => {
   return (
-    <TouchableOpacity style={_style.buttonContainer}>
+    <TouchableOpacity style={_style.buttonContainer} onPress={onPress}>
       <Text style={_style.text}>Start Meeting</Text>
       <MaterialCummunitIcons name='arrow-right' size={20} style={_style.text} />
     </TouchableOpacity>
