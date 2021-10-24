@@ -9,13 +9,16 @@ const Navigation = () => {
   const Stack = createStackNavigator()
   const screenOptions = {
     headerShown: true,
+    gestureDirection: 'vertical'
   }
 
   return (
     <NavigationContainer>
       <Stack.Navigator
         initialRouteName={routeKeys.home}
-        screenOptions={screenOptions}>
+        screenOptions={{
+          gestureDirection: 'vertical'
+        }}>
         <Stack.Screen
           name={routeKeys.home}
           component={HomeScreen}
