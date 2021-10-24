@@ -48,7 +48,7 @@ const InputField: React.FC<Props> = ({
         value={value}
         keyboardType={keyboardType}
         style={[_style.textInput, style, {marginBottom: title ? 20 : 10}]}
-        placeholderTextColor='#cccccc6f'
+        placeholderTextColor='#858585'
       />
     </View>
   )
@@ -60,10 +60,11 @@ const _style = StyleSheet.create({
     fontSize: 20,
     height: 50,
     borderWidth: 0.4,
-    borderColor: '#ccc',
+    borderColor: '#858585',
     padding: 10,
     color: '#ccc',
-    marginTop: 10
+    marginTop: 10,
+    backgroundColor: '#333333'
   },
   title: {
     color: '#ccc',

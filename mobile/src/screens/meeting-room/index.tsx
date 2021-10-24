@@ -31,7 +31,7 @@ const MeetingRoomScreen: React.FC<Props> = () => {
 
 const _style = StyleSheet.create({
   container: {
-    backgroundColor: '#1f1f1f',
+    backgroundColor: '#1c1c1c',
     padding: 10,
     flexDirection: 'column',
     justifyContent: 'space-between',

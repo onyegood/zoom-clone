@@ -9,13 +9,16 @@ const Navigation = () => {
   const Stack = createStackNavigator()
   const screenOptions = {
     headerShown: true,
+    gestureDirection: 'vertical'
   }
 
   return (
     <NavigationContainer>
       <Stack.Navigator
         initialRouteName={routeKeys.home}
-        screenOptions={screenOptions}>
+        screenOptions={{
+          gestureDirection: 'vertical'
+        }}>
         <Stack.Screen
           name={routeKeys.home}
           component={HomeScreen}
@@ -27,7 +30,8 @@ const Navigation = () => {
           options={{
             title: 'Start a Meeting',
             headerStyle: {
-              backgroundColor: '#1c1c1c'
+              backgroundColor: '#1c1c1c',
+              shadowOpacity: 0
             },
             headerTintColor: 'white'
           }}
