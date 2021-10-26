@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import {StyleSheet, View} from 'react-native'
 
-import CustomButton from '../../components/ui-elements/button'
-import InputField from '../../components/ui-elements/input'
+import StartMeetingForm from './forms/StartMeetingForm'
 
 interface Props {
 }
@@ -22,22 +21,13 @@ const MeetingRoomScreen: React.FC<Props> = () => {
 
   return (
     <View style={_style.container}>
-      <View>
-        <InputField
-          value={name}
-          placeholder='Enter name'
-          onChangeText={(value) => setName(value)}
-          title='Name*'
-        />
-        <InputField
-          value={roomId}
-          placeholder='Enter room id'
-          onChangeText={(value) => setRoomId(value)}
-          title='Room*'
-        />
-      </View>
-
-      <CustomButton onPress={() => handleSubmit()} />
+      <StartMeetingForm
+        name={name}
+        setName={setName}
+        roomId={roomId}
+        setRoomId={setRoomId}
+        handleSubmit={handleSubmit}
+      />
     </View>
   )
 }
