@@ -15,7 +15,7 @@ app.get("/", (req, res) => {
 io.on('connection', socket => {
   console.log('Someone is connected!');
   socket.on('join-room', ({roomId, userName}) => {
-    console.log('User joined room');
+    // console.log('User joined room');
     console.log(roomId, userName);
   })
 })
